@@ -86,7 +86,8 @@ Rails.application.configure do
 
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
-  host = 'fathomless-savannah-94840.herokuapp.com'
+  
+  host = 'ruby-sample-app.stromannet.com'
   config.action_mailer.default_url_options = { host: host }
   ActionMailer::Base.smtp_settings = {
     :address              =>  'smtp.sendgrid.net', 
