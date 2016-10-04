@@ -18,11 +18,14 @@ class UsersController < ApplicationController
 
   def create
   	@user = User.new(user_params)
+      captcha_message = "The Captcha is required."
 
-  	if @user.save
-        @user.send_activation_email
-        flash[:info] = "Please check your email to activate your account."
-        redirect_to root_url
+      @user.valid? #Ensures all error messages are shown in the view including for the captcha.
+            
+      if verify_recaptcha(:model => @user, :message => captcha_message) && @user.save
+          @user.send_activation_email
+          flash[:info] = "Please check your email to activate your account."
+          redirect_to root_url
   	else
   		render 'new'
   	end
@@ -64,7 +67,7 @@ class UsersController < ApplicationController
 
   private
 	  def user_params
-	  	params.require(:user).permit(:name, :email, :password, :password_confirmation)
+	  	params.require(:user).permit(:name, :email, :password, :password_confirmation )
 	  end
 
   # Before filters
