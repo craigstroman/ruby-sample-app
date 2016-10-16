@@ -1,0 +1,21 @@
+.center {
+	text-align: center;
+}
+
+.center h1 {
+	margin: 0 0 10px 0;
+}
+
+.col-centered {
+	float: none !important;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
+}

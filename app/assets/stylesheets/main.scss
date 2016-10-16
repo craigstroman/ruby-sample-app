@@ -1,0 +1,23 @@
+// Vendor
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+// Base
+@import "base/custom-variables";
+@import "base/custom-mixins";
+@import "base/helpers";
+@import "base/typography";
+
+// Shared
+@import "shared/classes/classes";
+@import "shared/forms/forms";
+
+// Header
+@import "shared/header/header";
+
+// Pages
+@import "application/pages";
+
+// Footer
+@import "shared/footer/footer";
+

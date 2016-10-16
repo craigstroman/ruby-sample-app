@@ -1,0 +1,46 @@
+@import "modules/sidebar/sidebar";
+@import "modules/gravatar/gravatar";
+
+
+.home-content {
+	@include make-row();
+
+	// Logged in home content
+	.user-info {
+		.user-content {
+			@extend .col-md-4;
+		}
+	}
+	.user-feeds {
+		@extend .col-md-8;
+	}
+
+	// Logged out home content
+	.welcome-box {
+		@extend .center;
+		@extend .jumbotron;
+		.sign-up-btn {
+			@extend .btn; 
+			@extend .btn-lg; 
+			@extend .btn-primary;
+		}
+	}
+
+	@include clearfix();
+}	
+
+// Misc user styles
+.user_avatars {
+  overflow: auto;
+  margin-top: 10px;
+  .gravatar {
+    margin: 1px 1px;
+  }
+  a {
+    padding: 0;
+  }
+}
+
+.users.folow {
+  padding: 0;
+}

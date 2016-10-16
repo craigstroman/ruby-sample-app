@@ -1,0 +1,27 @@
+footer {
+	.footer-content {
+		color: $light-gray;
+		border-top: 1px solid #eaeaea;
+		margin: 45px 0 0 0;
+		padding: 5px 0 0 0;	
+		a {
+			color: #555;
+			&:hover {
+				color: #222;
+			}		
+		}
+		small {
+			float: left;
+			margin: 0 0 0 10px;
+		}
+		ul {
+			float: right;
+			list-style: none;
+			margin: 0 10px 0 0;
+			li {
+				float: left;
+				margin: 0 0 0 15px;
+			}
+		}		
+	}
+}

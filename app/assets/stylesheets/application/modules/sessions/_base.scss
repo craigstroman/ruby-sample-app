@@ -1,0 +1,39 @@
+.login-content {
+	.login-form {
+		@extend .form-horizontal;
+		.form-item {
+			margin: 0 auto;
+			text-align: center;
+			width: 325px;
+			.form-label {
+				display: inline-block;
+				text-align: left;
+				width: 100px;
+			}
+			.form-input {
+				display: inline-block;
+				input[type="email"],
+				input[type="password"] {
+					width: 200px;
+				}
+			}
+
+			&.action-items {
+				margin-top: 10px;
+				.btn-container {
+					display: inline-block;
+					.login-btn {
+						@extend .btn;
+						@extend .btn-primary;	
+						width: 100px;			
+					}
+				}		
+
+				.reset-container {
+					display: inline-block;
+				}				
+			}
+			@include clearfix();						
+		}		
+	}	
+}

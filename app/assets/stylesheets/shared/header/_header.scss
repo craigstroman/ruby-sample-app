@@ -1,0 +1,42 @@
+header {
+	@extend .navbar;
+	@extend .navbar-fixed-top;
+	@extend .navbar-inverse;
+	.nav-container {
+		@extend .container-fluid;
+		.nav-header {
+			@extend .navbar-header;
+			#logo {
+				color: #fff;
+				float: left;
+				font-size: 1.7em;
+				font-weight: bold;
+				letter-spacing: -1px;
+				padding: 9px 0 0 0;
+				text-transform: uppercase;
+				&:hover {
+					text-decoration: none;
+				}
+			}			
+		}
+		nav {
+			.nav-content {
+				@extend .collapse;
+				@extend .navbar-collapse;
+				.nav-links {
+					@extend .nav;
+					@extend .navbar-nav;
+					@extend .navbar-right;
+					.nav-main-dropdown {
+						@extend .dropdown;
+					}				
+				}				
+			}
+		}
+
+	}
+	@include clearfix();
+}
+
+
+
