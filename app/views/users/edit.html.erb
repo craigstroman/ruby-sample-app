@@ -11,6 +11,8 @@
 
 			<%= f.label :email %>
 			<%= f.email_field :email, class: 'form-control' %>
+			
+			<% if !session[:omniauth_user] %>
 
 			<%= f.label :password %>
 			<%= f.password_field  :password, class: 'form-control' %>
@@ -18,12 +20,16 @@
 			<%= f.label :password_confirmation %>
 			<%= f.password_field :password_confirmation, class: 'form-control' %>
 
+			<% end %>
+
 			<%= f.submit "Save Changes", class: "btn brn-primary" %>
 		<% end %>
 
+		<% if !session[:omniauth_user] %>
 		<div class="gravatar_edit">
 			<%= gravatar_for @user %>
 			<a href="http://gravatar.com/emails" target="_blank">Change Gravatar</a>
 		</div>
+		<% end %>
 	</div>
 </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160925175539) do
+ActiveRecord::Schema.define(version: 20161026015047) do
 
   create_table "microposts", force: :cascade do |t|
     t.text     "content"
@@ -20,6 +20,18 @@ ActiveRecord::Schema.define(version: 20160925175539) do
     t.string   "picture"
     t.index ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_microposts_on_user_id"
+  end
+
+  create_table "omniauth_users", force: :cascade do |t|
+    t.string   "uid"
+    t.string   "provider"
+    t.string   "name"
+    t.string   "email"
+    t.string   "location"
+    t.string   "image_url"
+    t.string   "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "relationships", force: :cascade do |t|
@@ -45,6 +57,13 @@ ActiveRecord::Schema.define(version: 20160925175539) do
     t.datetime "activated_at"
     t.string   "reset_digest"
     t.datetime "reset_sent_at"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "url"
+    t.string   "image_url"
+    t.string   "location"
+    t.string   "oauth_token"
+    t.datetime "oauth_expires_at"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

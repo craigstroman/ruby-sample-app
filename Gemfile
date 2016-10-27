@@ -16,6 +16,8 @@ gem 'will_paginate', '~> 3.1', '>= 3.1.3'
 gem 'bootstrap-will_paginate', '~> 0.0.10'
 # Bootstrap
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
+# Font Awesome
+gem 'font-awesome-sass', '~> 4.7.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -28,6 +30,8 @@ gem 'coffee-rails', '~> 4.1.0'
 # Recaptcha
 #gem 'recaptcha', '~> 3.3'
 gem "recaptcha", require: "recaptcha/rails", github: "ambethia/recaptcha"
+
+gem 'omniauth-google-oauth2'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

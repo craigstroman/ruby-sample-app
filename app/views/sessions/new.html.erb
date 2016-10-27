@@ -30,12 +30,19 @@
             <%= f.submit "Log in", class: "login-btn" %>
           </div>
 
-          <div class="reset-container">
-            <p><%= link_to "Forgot your password?", new_password_reset_path %></p>
+            <div class="reset-container">
+              <p><%= link_to "Forgot your password?", new_password_reset_path %></p>
           </div>
         </div>
-
       <% end %>
+
+      <div class="login-providers">
+          <h2 class="lines"><span>Or sign in with</span></h2>
+          <%= button_to "/auth/google_oauth2", class: "google-login-btn" do %>
+            <i class="google-icon"></i>
+            Sign in with Google
+          <% end %>
+      </div>
 
       <div class="new-user-signup">
         <p>New user? <%= link_to "Sign up now!", signup_path %></p>

@@ -102,6 +102,30 @@ class User < ApplicationRecord
 		Micropost.where("user_id IN (#{following_ids}) OR user_id = :user_id", user_id: id)
 	end
 
+	# Logs a user in from a oauth provider such as Google, Facebook, and Twitter.
+	def self.from_omniauth(auth)
+		where(uid: auth['uid'], provider: auth['provider']).first_or_initialize.tap do |user|
+			user.uid = auth['uid']
+			user.provider = auth['provider']
+			user.name = auth['info']['name']
+			user.email = auth['info']['email']
+			user.location = auth['info']['location']
+			user.image_url = auth['info']['image']
+			user.url = auth['info']['urls']
+			user.oauth_token = auth['credentials']['token']
+			user.oauth_expires_at = Time.at(auth.credentials.expires_at)
+			user.password = "foobar"
+			if !user.activated
+				user.activated = true
+			end
+			if !user.activated_at 
+				user.activated_at = Time.now
+			end						
+			user.save!
+			user			
+		end	      	
+	end
+
 	private
 
 		# Converts email to all lower-case.

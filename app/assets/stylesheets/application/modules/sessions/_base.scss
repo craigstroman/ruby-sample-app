@@ -35,5 +35,28 @@
 			}
 			@include clearfix();						
 		}		
+	}
+	.login-providers {
+		display: block;
+		margin: 0 auto;
+		text-align: center;
+		width: 400px;
+		h2 {
+			margin-top: 30px;
+			text-align: center;			
+		}
+		.google-login-btn {
+			@extend .btn;
+			@extend .btn-danger;
+			width: 200px;
+			.google-icon {
+				@extend .fa;
+				@extend .fa-google-plus;
+				color: #fff;
+				float: left;
+				line-height: 20px;
+			}
+		}
+		@include clearfix();
 	}	
 }

@@ -2,6 +2,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+// Font-Awesome
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
 // Base
 @import "base/custom-variables";
 @import "base/custom-mixins";
