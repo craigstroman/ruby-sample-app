@@ -12,7 +12,7 @@
 			<%= f.label :email %>
 			<%= f.email_field :email, class: 'form-control' %>
 			
-			<% if !session[:omniauth_user] %>
+			<% if @user.provider.nil? %>
 
 			<%= f.label :password %>
 			<%= f.password_field  :password, class: 'form-control' %>
@@ -22,10 +22,10 @@
 
 			<% end %>
 
-			<%= f.submit "Save Changes", class: "btn brn-primary" %>
+			<%= f.submit "Save Changes", class: "btn btn-primary" %>
 		<% end %>
 
-		<% if !session[:omniauth_user] %>
+		<% if @user.provider.nil? %>
 		<div class="gravatar_edit">
 			<%= gravatar_for @user %>
 			<a href="http://gravatar.com/emails" target="_blank">Change Gravatar</a>

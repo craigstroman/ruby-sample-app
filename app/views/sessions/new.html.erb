@@ -38,10 +38,20 @@
 
       <div class="login-providers">
           <h2 class="lines"><span>Or sign in with</span></h2>
-          <%= button_to "/auth/google_oauth2", class: "google-login-btn" do %>
-            <i class="google-icon"></i>
+          <%= button_to "/auth/google_oauth2", class: "social-login-btn google-login-btn" do %>
+            <i class="social-login-icon google-icon" aria-hidden="true"></i>
             Sign in with Google
           <% end %>
+
+          <%= button_to "/auth/facebook", class: "social-login-btn facebook-login-btn" do %>
+            <i class="social-login-icon facebook-icon" aria-hidden="true"></i>
+            Sign in with Facebook
+          <% end %>              
+
+          <%= button_to "/auth/twitter", class: "social-login-btn twitter-login-btn" do %>
+            <i class="social-login-icon twitter-icon" aria-hidden="true"></i>
+            Sign in with Twitter
+          <% end %>                
       </div>
 
       <div class="new-user-signup">

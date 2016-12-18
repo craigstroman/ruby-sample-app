@@ -11,7 +11,7 @@ class PasswordResetsController < ApplicationController
       captcha_message = "The Captcha is required."
       
       if verify_recaptcha
-      	if @user
+      	if @user && @user.provider.nil?
                   @user.create_reset_digest
       		@user.send_password_reset_email
       		flash[:info] = "Email sent with password reset instructions."

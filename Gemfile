@@ -28,10 +28,13 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'  
 
 # Recaptcha
-#gem 'recaptcha', '~> 3.3'
 gem "recaptcha", require: "recaptcha/rails", github: "ambethia/recaptcha"
 
 gem 'omniauth-google-oauth2'
+
+gem 'omniauth-twitter'
+
+gem 'omniauth-facebook'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

@@ -112,15 +112,30 @@ class User < ApplicationRecord
 			user.location = auth['info']['location']
 			user.image_url = auth['info']['image']
 			user.url = auth['info']['urls']
-			user.oauth_token = auth['credentials']['token']
-			user.oauth_expires_at = Time.at(auth.credentials.expires_at)
-			user.password = "foobar"
+
+			if auth['credentials']['token']
+				user.oauth_token = auth['credentials']['token']
+			end 
+
+			if auth.credentials.expires_at
+				user.oauth_expires_at = Time.at(auth.credentials.expires_at)
+			end
+
+			user.password = user.provider + "-authorized-account"
+
 			if !user.activated
 				user.activated = true
 			end
+
 			if !user.activated_at 
 				user.activated_at = Time.now
-			end						
+			end
+
+			if user.provider == 'twitter'
+				user.email = auth['info']['nickname'] + '@twitter.com'
+				user.url = auth['info']['urls']['Twitter']
+			end
+
 			user.save!
 			user			
 		end	      	

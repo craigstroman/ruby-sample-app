@@ -16,4 +16,36 @@ Rails.application.config.middleware.use OmniAuth::Builder do
   		}
   	}
   }
+
+  provider :facebook, 
+    Rails.application.secrets.facebook_oauth_key, 
+    Rails.application.secrets.facebook_outh_secret, {
+    :secure_image_url => 'true',
+    :image_size => 'original',
+    :authorize_params => {
+      :force_login => 'true',
+      :lang => 'en'
+    },
+    client_options: {
+      ssl: {
+        ca_file: Rails.root.join("cacert.pem").to_s
+      }
+    }
+  }    
+
+  provider :twitter, 
+    Rails.application.secrets.twitter_oauth_key, 
+    Rails.application.secrets.twitter_outh_secret, {
+    :secure_image_url => 'true',
+    :image_size => 'original',
+    :authorize_params => {
+      :force_login => 'true',
+      :lang => 'en'
+    },
+    client_options: {
+      ssl: {
+        ca_file: Rails.root.join("cacert.pem").to_s
+      }
+    }
+  }  
 end
