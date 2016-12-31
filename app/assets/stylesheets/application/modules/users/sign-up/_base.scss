@@ -1,50 +1,72 @@
-.sign-up-form {
-	@extend .form-horizontal;
-	.form-item {
-		@extend .form-group;
-		.form-label {
-			@extend .col-sm-offset-1;
-			@extend .col-sm-2;
-			@extend .control-label;
+.signup-container {
+	.header {
+		display: block;
+		margin: 0 auto;
+		h2 {
+			margin: 0;
 		}
-		.form-input {
-			@extend .col-sm-6;
-		}
-
-		// Sign up form Recaptcha
-		.recaptcha-container {
-			display: block;
-			width: 100%;
-			.g-recaptcha {
-				div {
-					margin: 0 auto;
-					text-align: center;					
-				}
-				
+		.lines {
+			&:first-child {
+				margin-bottom: 15px;
 			}
-
-		}
-
-		// Form errors
-		.form-error {
-			&.recaptcha {
-				margin: 0 auto;
-				text-align: center;
-				width: 200px;
+			&:last-child {
+				margin-bottom: 15px;
+				margin-top: 5px;
 			}
-		}		
-
-		.form-btn {
-			display: block;
-			margin: 0 auto;
+		}
+		.login-providers {
 			text-align: center;
-			width: 100;
-			.btn-new-user {
-				@extend .btn;
-				@extend .btn-primary;
-				width: $btn-size;
+			.button_to {
+				display: inline-block;
+				margin: 0 auto;
 			}
 		}
 		@include clearfix();
 	}
+	.signup-form {
+		@extend .form-horizontal;
+		.form-item {
+			@extend .form-group;
+			.form-input {
+				@extend .col-sm-8;
+				float: none;
+				margin: 0 auto;
+			}
+
+			// Sign up form Recaptcha
+			.recaptcha-container {
+				display: block;
+				width: 100%;
+				.g-recaptcha {
+					div {
+						margin: 0 auto;
+						text-align: center;					
+					}
+					
+				}
+
+			}
+			// Form errors
+			.form-error {
+				&.recaptcha {
+					margin: 0 auto;
+					text-align: center;
+					width: 200px;
+				}
+			}		
+
+			.form-btn {
+				display: block;
+				margin: 0 auto;
+				text-align: center;
+				width: 100;
+				.btn-new-user {
+					@extend .btn;
+					@extend .btn-primary;
+					width: $btn-size;
+				}
+			}
+			@include clearfix();
+		} // .form-item
+	} // .signup-form	
 }

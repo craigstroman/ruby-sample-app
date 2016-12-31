@@ -37,58 +37,14 @@
 		}		
 	}
 	.login-providers {
-		display: block;
-		margin: 0 auto;
-		text-align: center;
-		width: 400px;
-		h2 {
-			margin-top: 30px;
-			text-align: center;			
-		}
-		.social-login-btn {
-			@extend .btn;
-			color: $white;
-			margin-bottom: 10px;
-			width: 200px;
-			&:hover {
-				color: $white;
-			}
-			.social-login-icon {
-				color: $white;
-				float: left;
-				line-height: 20px;				
-			}
-		}
-		.google-login-btn {
-			background-color: $google-login-btn;
-			&:hover {
-				background-color: darken($google-login-btn, 5%);
-			}
-			.google-icon {
-				@extend .fa;
-				@extend .fa-google-plus;
-			}
-		}
-		.twitter-login-btn {
-			background-color: $twitter-login-btn;
-			&:hover {
-				background-color: darken($twitter-login-btn, 5%);
-			}
-			.twitter-icon {
-				@extend .fa;
-				@extend .fa-twitter;
-			}						
-		}
-		.facebook-login-btn {
-			background-color: $facebook-login-btn;
-			&:hover {
-				background-color: darken($facebook-login-btn, 5%);
-			}
-			.facebook-icon {
-				@extend .fa;
-				@extend .fa-facebook;
-			}				
-		}
-		@include clearfix();
-	}	
+	    display: block;
+	    margin: 0 auto;
+	    text-align: center;
+	    width: 400px;
+	    h2 {
+	        margin-top: 30px;
+	        text-align: center;         
+	    }
+	    @include clearfix();
+	}		
 }

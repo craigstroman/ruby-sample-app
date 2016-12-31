@@ -1,65 +1,82 @@
 <% provide(:title, "Sign Up") %>
 
-<h1>Sign Up</h1>
+<div class="signup-container">
+	<h1>Sign Up</h1>
 
+	<div class="header">
+		<h2 class="lines"><span>Create an account with</span></h2>
+		<div class="login-providers">
+		  <%= button_to "/auth/google_oauth2", class: "social-login-btn google-login-btn" do %>
+		    <i class="social-login-icon google-icon" aria-hidden="true"></i>
+		    Sign in with Google
+		  <% end %>
 
-<%= form_for @user,  :html => {:class => "sign-up-form"} do |f| %>
-	
-	<%= puts YAML::dump(f.object.errors) %>
-		
-	<% if f.object.errors.any? %>
-		<div class="row">
-			<div class="col-sm-12">
-				<div class="alert alert-danger">
-					There was a problem creating your account.
-				</div>				
-			</div>
-		</div>
-	<% end %>
+		  <%= button_to "/auth/facebook", class: "social-login-btn facebook-login-btn" do %>
+		    <i class="social-login-icon facebook-icon" aria-hidden="true"></i>
+		    Sign in with Facebook
+		  <% end %>              
 
-	<div class="form-item">
-		<%= f.label :name, "Name:", class: "form-label" %>
-		<div class="form-input">
-			<%= f.text_field :name, required: "required" %>
+		  <%= button_to "/auth/twitter", class: "social-login-btn twitter-login-btn" do %>
+		    <i class="social-login-icon twitter-icon" aria-hidden="true"></i>
+		    Sign in with Twitter
+		  <% end %>                
 		</div>	
+		<h2 class="lines"><span>Or create an account here</span></h2>
 	</div>
 
-	<div class="form-item">
-		<%= f.label :email, "Email:", class: "form-label" %>
-		<div class="form-input">
-			<%= f.email_field :email, required: "required" %>
-		</div>
-	</div>
 
-	<div class="form-item">
-		<%= f.label :password, "Password:", class: "form-label" %>
-		<div class="form-input">
-			<%= f.password_field :password, required: "required" %>
-		</div>
-	</div>
+	<%= form_for @user,  :html => {:class => "signup-form"} do |f| %>
 			
-	<div class="form-item">
-		<%= f.label :password_confirmation, "Password confirmation: ", class: "form-label" %>
-		<div class="form-input">
-			<%= f.password_field :password_confirmation, required: "required" %>
-		</div>
-	</div>
-
-	<div class="form-item">
-		<div class="recaptcha-container">
-			<%= recaptcha_tags %>
-		</div>
-		<% if f.object.errors.any?  && f.object.errors[:"g-recaptcha-response"] %>
-			<div class="form-error recaptcha">
-				<div class="alert alert-danger">Recaptcha is required.</div>
+		<% if f.object.errors.any? %>
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="alert alert-danger">
+						There was a problem creating your account.
+					</div>				
+				</div>
 			</div>
 		<% end %>
-	</div>
-	
-	<div class="form-item">
-		<div class="form-btn">
-			<%= f.submit "Create my account", id: "btn-new-user", class: "btn-new-user" %>
+
+		<div class="form-item">
+			<div class="form-input">
+				<%= f.text_field :name, required: "required", placeholder: "Name", 'aria-label': "Name" %>
+			</div>	
 		</div>
-	</div>
-<% end %>
-	
+
+		<div class="form-item">
+			<div class="form-input">
+				<%= f.email_field :email, required: "required", placeholder: "Email", 'aria-label': "Email" %>
+			</div>
+		</div>
+
+		<div class="form-item">
+			<div class="form-input">
+				<%= f.password_field :password, required: "required", placeholder: "Password", 'aria-label': "Password" %>
+			</div>
+		</div>
+				
+		<div class="form-item">
+			<div class="form-input">
+				<%= f.password_field :password_confirmation, required: "required", placeholder: "Password Confirmation", 'aria-label': "Password Confirmation" %>
+			</div>
+		</div>
+
+		<div class="form-item">
+			<div class="recaptcha-container">
+				<%= recaptcha_tags %>
+			</div>
+			<% if f.object.errors.any?  && f.object.errors[:"g-recaptcha-response"] %>
+				<div class="form-error recaptcha">
+					<div class="alert alert-danger">Recaptcha is required.</div>
+				</div>
+			<% end %>
+		</div>
+		
+		<div class="form-item">
+			<div class="form-btn">
+				<%= f.submit "Create my account", id: "btn-new-user", class: "btn-new-user" %>
+			</div>
+		</div>
+
+	<% end %>	
+</div>
