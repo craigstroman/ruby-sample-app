@@ -1,4 +1,4 @@
-#Ruby Sample App
+# Ruby Sample App
 
 The sample app from Ruby on Rails Tutorial by Michael Hartl.
 
